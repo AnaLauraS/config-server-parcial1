@@ -1,5 +1,7 @@
 server:
-  port: 8081
+  port: ${PORT:${SERVER_PORT:0}}
+
+idRandom: ${random.value}
 
 spring:
   application:
@@ -34,7 +36,7 @@ management:
 eureka:
   instance:
     hostname: localhost
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     registerWithEureka: true
     fetchRegistry: true
