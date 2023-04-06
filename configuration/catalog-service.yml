@@ -11,8 +11,8 @@ spring:
       version: 4.0.2
   data:
     mongodb:
-      database: test
-      port: 27017
+      database: testCatalog
+      port: 27018
   sleuth:
     sampler:
       probability: 1.0
@@ -24,8 +24,6 @@ spring:
   zipkin:
     beseUrl: htt://localhost:9411/
     enabled: true
-    sender:
-      type: rabbit
 
 queue:
   movie:
