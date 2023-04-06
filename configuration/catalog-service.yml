@@ -6,26 +6,51 @@ idRandom: ${random.value}
 spring:
   application:
     name: catalog-service
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password: sa
-  jpa:
-    open-in-view: false
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-        format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+  mongodb:
+    embedded:
+      version: 4.0.2
+  data:
+    mongodb:
+      database: test
+      port: 27017
+  sleuth:
+    sampler:
+      probability: 1.0
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
   zipkin:
-    base-url: http://localhost:9411/
+    beseUrl: htt://localhost:9411/
     enabled: true
+    sender:
+      type: rabbit
+
+queue:
+  movie:
+    name: movieQueue
+
+
+# Configuracion previa de la base de datos
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password: sa
+#  jpa:
+#    open-in-view: false
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.H2Dialect
+#        format_sql: true
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+
 
 message: hello from catalog-service
 
