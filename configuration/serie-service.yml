@@ -5,7 +5,7 @@ idRandom: ${random.value}
 
 spring:
   application:
-    name: catalog-service
+    name: serie-service
   mongodb:
     embedded:
       version: 4.0.2
@@ -13,6 +13,11 @@ spring:
     mongodb:
       database: test
       port: 27017
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
+    sender:
+      type: rabbit
   sleuth:
     sampler:
       probability: 1.0
@@ -21,40 +26,12 @@ spring:
     password: guest
     host: localhost
     port: 5672
-  zipkin:
-    beseUrl: htt://localhost:9411/
-    enabled: true
-    sender:
-      type: rabbit
 
 queue:
-  movie:
-    name: movieQueue
   serie:
     name: serieQueue
 
-
-# Configuracion previa de la base de datos
-#  datasource:
-#    url: jdbc:h2:mem:testdb
-#    username: sa
-#    password: sa
-#  jpa:
-#    open-in-view: false
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.H2Dialect
-#        format_sql: true
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
-
-
-message: hello from catalog-service
+message: hello from serie-service
 
 management:
   endpoints:
@@ -70,7 +47,7 @@ info:
     name: ${spring.application.name}
     port: ${server.port}
     instance: ${spring.application.instance_id:${random.value}}
-        
+
 eureka:
   instance:
     hostname: localhost
