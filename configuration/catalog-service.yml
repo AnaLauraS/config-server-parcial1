@@ -27,9 +27,9 @@ spring:
 
 queue:
   movie:
-    name: movieQueue
+    name: newMovie
   serie:
-    name: serieQueue
+    name: newSerie
 
 
 # Configuracion previa de la base de datos

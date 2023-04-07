@@ -27,7 +27,7 @@ spring:
 
 queue:
   serie:
-    name: serieQueue
+    name: newSerie
 
 message: hello from serie-service
 

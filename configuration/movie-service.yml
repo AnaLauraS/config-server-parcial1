@@ -38,7 +38,7 @@ spring:
 
 queue:
   movie:
-    name: movieQueue
+    name: newMovie
 
 message: hello from movie-service
 
