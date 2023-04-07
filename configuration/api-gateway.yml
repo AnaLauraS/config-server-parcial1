@@ -21,7 +21,7 @@ spring:
         - id: serie-service 
           uri: lb://serie-service 
           predicates: 
-            - Path=/serie/**       
+            - Path=/series/**        
 
 info:
   app:
